@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maru Website</title>
+
+<meta name="description" content="Maru Website - Modern professional website">
+<meta name="theme-color" content="#ff6a00">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --orange:#ff6a00;
+    --orange2:#ff9d42;
+    --dark:#080808;
+    --dark2:#111111;
+    --card:#171717;
+    --text:#ffffff;
+    --muted:#a9a9a9;
+    --border:rgba(255,106,0,.25);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(255,106,0,.16),transparent 30%),
+        radial-gradient(circle at 80% 50%,rgba(255,106,0,.10),transparent 30%),
+        var(--dark);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(8,8,8,.82);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-container{
+    max-width:1150px;
+    margin:auto;
+    height:72px;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#ddd;
+    font-size:15px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 20px 70px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:var(--orange);
+    filter:blur(130px);
+    opacity:.18;
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    color:#ffb070;
+    background:rgba(255,106,0,.08);
+    margin-bottom:22px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,82px);
+    line-height:1.05;
+    margin-bottom:22px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:var(--orange);
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 32px;
+    color:var(--muted);
+    font-size:18px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:10px;
+    font-weight:700;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--orange),#ff8c32);
+    color:#fff;
+    box-shadow:0 10px 30px rgba(255,106,0,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(255,106,0,.4);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.04);
+}
+
+.btn-outline:hover{
+    border-color:var(--orange);
+    color:var(--orange);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title .small{
+    color:var(--orange);
+    font-size:14px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin:8px 0;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.about-card{
+    background:linear-gradient(145deg,#191919,#0e0e0e);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.about-card h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.about-card p{
+    color:var(--muted);
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.feature{
+    padding:22px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    background:rgba(255,255,255,.03);
+}
+
+.feature-icon{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.feature h4{
+    margin-bottom:5px;
+}
+
+.feature p{
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* SERVICES */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.service-card{
+    padding:28px;
+    background:linear-gradient(145deg,#181818,#101010);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-7px);
+    border-color:var(--border);
+    box-shadow:0 15px 40px rgba(255,106,0,.12);
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:rgba(255,106,0,.12);
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+.service-card h3{
+    margin-bottom:10px;
+}
+
+.service-card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    text-align:center;
+    padding:30px 15px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+}
+
+.stat strong{
+    display:block;
+    color:var(--orange);
+    font-size:34px;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    max-width:750px;
+    margin:auto;
+    padding:40px;
+    border-radius:22px;
+    text-align:center;
+    background:linear-gradient(145deg,#1a1a1a,#0d0d0d);
+    border:1px solid var(--border);
+}
+
+.contact-box h2{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.contact-box p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 20px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    color:#888;
+}
+
+footer strong{
+    color:var(--orange);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        position:absolute;
+        top:72px;
+        left:0;
+        width:100%;
+        display:none;
+        flex-direction:column;
+        gap:0;
+        background:#0b0b0b;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links li{
+        border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-links a{
+        display:block;
+        padding:15px 25px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    section{
+        padding:70px 16px;
+    }
+
+    .hero{
+        padding-top:110px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+}
+
+@media(max-width:450px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .about-card{
+        padding:25px;
+    }
+
+    .contact-box{
+        padding:28px 20px;
+    }
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content{
+    animation:fadeUp .9s ease;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            E <span>MARUTHI</span> MARU
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#stats" onclick="closeMenu()">Highlights</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+
+    </div>
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">✦ Welcome to my website</div>
+
+        <h1>
+            Welcome to <span>Maruti</span>
+        </h1>
+
+        <p>
+            A modern and professional digital space built with creativity,
+            technology and passion.
+        </p>
+
+        <div class="buttons">
+            <a href="#services" class="btn btn-primary">
+                Explore Services →
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                Learn More
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">About Us</div>
+            <h2>Creative. Modern. Professional.</h2>
+            <p>Everything you need in one simple website.</p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+                <h3>About Maru</h3>
+
+                <p>
+                    Welcome to Maru Website. This website is created as a
+                    modern online platform with a clean design, smooth
+                    animations and mobile-friendly experience.
+                </p>
+
+                <br>
+
+                <p>
+                    Our goal is to create a simple, beautiful and useful
+                    digital experience for everyone.
+                </p>
+
+                <br>
+
+                <a href="#contact" class="btn btn-primary">
+                    Get Started
+                </a>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Fast</h4>
+                    <p>Lightweight and fast-loading design.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h4>Mobile Ready</h4>
+                    <p>Works beautifully on mobile devices.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h4>Modern Design</h4>
+                    <p>Premium dark and orange interface.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Simple</h4>
+                    <p>No complicated setup is required.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">Our Services</div>
+            <h2>What We Offer</h2>
+            <p>Explore our main features.</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Web Solutions</h3>
+                <p>
+                    Modern responsive websites designed for today's
+                    mobile-first world.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>Creative Ideas</h3>
+                <p>
+                    Creative concepts and digital ideas to make your
+                    project stand out.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Fast Performance</h3>
+                <p>
+                    Clean and lightweight code for a smooth browsing
+                    experience.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Mobile Design</h3>
+                <p>
+                    Fully responsive layouts that work across phones,
+                    tablets and desktops.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Professional UI</h3>
+                <p>
+                    Attractive interfaces with clear navigation and
+                    user-friendly layouts.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Premium Experience</h3>
+                <p>
+                    Smooth animations, glass effects and a premium
+                    visual experience.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section id="stats">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div class="small">Highlights</div>
+            <h2>Built With Passion</h2>
+            <p>A simple demonstration of our website experience.</p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>Responsive</span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Online</span>
+            </div>
+
+            <div class="stat">
+                <strong>6+</strong>
+                <span>Services</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Possibilities</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>Let's Build Something Great</h2>
+
+            <p>
+                Thank you for visiting Maru Website.
+                Connect with us and explore more.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#home" class="btn btn-primary">
+                    Back to Home ↑
+                </a>
+
+                <a href="mailto:your@email.com" class="btn btn-outline">
+                    Email Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 <strong>E MARUTHI MARU</strong>. All Rights Reserved.
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu(){
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+</script>
+
+</body>
+  </html>
